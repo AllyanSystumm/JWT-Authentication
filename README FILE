@@ -1,0 +1,68 @@
+A JWT (JSON Web Token) is a secure token used to authenticate users between client and server 
+without storing session data on the server. It is widely used
+ in APIs (FastAPI, Django, React apps, mobile apps, microservices)—so it’s very useful 
+ for your backend projects like your AI voice agent or autodialer dashboards where secure API access is required.
+
+What is JWT (simple explanation)
+
+Think of JWT like a digital ID card.
+Example flow:
+
+User logs in with username/password
+Server verifies credentials
+Server creates a JWT token
+Client stores token
+Client sends token with every request
+Server verifies token → allows access
+
+No need to store session on server → stateless authentication.
+
+Structure of JWT
+
+JWT has 3 parts
+
+HEADER.PAYLOAD.SIGNATURE
+1️⃣ Header
+
+Contains algorithm info
+Example:
+{
+ "alg": "HS256",
+ "typ": "JWT"
+}
+
+2️⃣ Payload
+Contains user data (called claims)
+Example:
+{
+ "user_id": 101,
+ "role": "admin",
+ "exp": 1712345678
+}
+
+3️⃣ Signature
+Used to verify token authenticity
+If someone changes payload → signature becomes invalid.
+Where JWT is used
+Common real-world uses:
+Login authentication
+Secure APIs
+Role-based dashboards
+Microservices communication
+Mobile apps
+Single Page Applications
+
+Example:
+Your FastAPI backend → issues JWT
+Frontend dashboard → sends token in requests
+
+
+These packages are needed because:
+
+FastAPI → backend API framework
+Uvicorn → runs the server
+SQLAlchemy → connects FastAPI with PostgreSQL
+psycopg2-binary → PostgreSQL driver
+python-jose → JWT token creation
+passlib → password hashing
+python-dotenv → environment variables (.env file)
